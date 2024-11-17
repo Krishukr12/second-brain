@@ -1,7 +1,11 @@
-import { Request, Response, Router } from 'express'
+import { Router } from 'express'
+import { signUpUser, singInUser } from '../controllers'
 
-export const userRouter = Router()
+export const UserRouter = Router()
 
-userRouter.get('/', (req: Request, res: Response) => {
-  res.send('welcome to user router')
+UserRouter.post('/signin', singInUser)
+UserRouter.post('signup', signUpUser)
+
+UserRouter.get('/', (req, res) => {
+  res.send('working fine')
 })
